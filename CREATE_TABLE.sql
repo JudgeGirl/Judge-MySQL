@@ -68,13 +68,26 @@ CREATE TABLE `users` (
   `ts1` bigint(20) DEFAULT NULL,
   `ts2` bigint(20) DEFAULT NULL,
   `lgn` char(255) NOT NULL,
-  `pwd` text NOT NULL,
-  `motto` text NOT NULL,
-  `email` text NOT NULL,
-  `nname` text NOT NULL,
-  `ename` text NOT NULL,
+  `pwd` mediumtext NOT NULL,
+  `motto` mediumtext NOT NULL,
+  `email` mediumtext NOT NULL,
+  `nname` mediumtext NOT NULL,
+  `ename` mediumtext NOT NULL,
   `class` char(255) DEFAULT NULL,
   `ip` char(255) DEFAULT NULL,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `lgn` (`lgn`)
-) ENGINE=MyISAM AUTO_INCREMENT=309 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=321 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `exams` (
+  `eid` int(11) NOT NULL,
+  `ttl` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`eid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `exam_scores` (
+  `uid` int(11) NOT NULL,
+  `eid` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  PRIMARY KEY (`uid`,`eid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
