@@ -1,0 +1,3 @@
+CREATE DATABASE JudgeGirl;
+CREATE USER 'JudgeGirl'@'%' IDENTIFIED BY 'ef295a94';
+GRANT ALL PRIVILEGES ON JudgeGirl.* TO 'JudgeGirl'@'%';
