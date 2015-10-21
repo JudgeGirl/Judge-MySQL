@@ -17,7 +17,7 @@ CREATE TABLE `contests` (
   `ts2` bigint(20) DEFAULT NULL,
   `ttl` text NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `exam_score` (
   `uid` int(11) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `levels` (
   `ttl` text COLLATE utf8_unicode_ci,
   `lorder` int(11) DEFAULT NULL,
   PRIMARY KEY (`level`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `problem_dependency` (
   `pid` int(11) DEFAULT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `problems` (
   `level` int(11) DEFAULT NULL,
   `porder` int(11) DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10010 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `submissions` (
   `sid` int(11) NOT NULL AUTO_INCREMENT,
@@ -61,7 +61,7 @@ CREATE TABLE `submissions` (
   `cpu` int(11) NOT NULL,
   `mem` int(11) NOT NULL,
   PRIMARY KEY (`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=8020 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `users` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
@@ -77,7 +77,7 @@ CREATE TABLE `users` (
   `ip` char(255) DEFAULT NULL,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `lgn` (`lgn`)
-) ENGINE=MyISAM AUTO_INCREMENT=321 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `exams` (
   `eid` int(11) NOT NULL,
