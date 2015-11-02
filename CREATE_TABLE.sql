@@ -80,7 +80,7 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `exams` (
-  `eid` int(11) NOT NULL,
+  `eid` int(11) NOT NULL AUTO_INCREMENT,
   `ttl` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`eid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
