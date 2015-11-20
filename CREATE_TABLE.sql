@@ -91,3 +91,18 @@ CREATE TABLE `exam_scores` (
   `score` int(11) NOT NULL,
   PRIMARY KEY (`uid`,`eid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `contest_special` (
+  `cid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  PRIMARY KEY (`cid`, `pid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `chats` (
+  `mid` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `msg` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `ts` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`mid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
