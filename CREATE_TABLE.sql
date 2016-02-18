@@ -1,8 +1,29 @@
+CREATE TABLE `chats` (
+  `mid` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `msg` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `ts` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`mid`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `const` (
+  `var` varchar(14) NOT NULL,
+  `content` text NOT NULL,
+  PRIMARY KEY (`var`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 CREATE TABLE `contest_problem` (
   `cid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
   PRIMARY KEY (`cid`,`pid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `contest_special` (
+  `cid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  PRIMARY KEY (`cid`,`pid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `contest_user` (
   `cid` int(11) NOT NULL,
@@ -19,10 +40,23 @@ CREATE TABLE `contests` (
   PRIMARY KEY (`cid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 
-CREATE TABLE `exam_score` (
+CREATE TABLE `exam_scores` (
   `uid` int(11) NOT NULL,
-  `exam2` int(11) DEFAULT NULL,
-  PRIMARY KEY (`uid`)
+  `eid` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  PRIMARY KEY (`uid`,`eid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `exams` (
+  `eid` int(11) NOT NULL AUTO_INCREMENT,
+  `ttl` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`eid`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `level_domain` (
+  `did` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  PRIMARY KEY (`did`,`level`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `levels` (
@@ -78,31 +112,3 @@ CREATE TABLE `users` (
   PRIMARY KEY (`uid`),
   UNIQUE KEY `lgn` (`lgn`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-
-CREATE TABLE `exams` (
-  `eid` int(11) NOT NULL AUTO_INCREMENT,
-  `ttl` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`eid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `exam_scores` (
-  `uid` int(11) NOT NULL,
-  `eid` int(11) NOT NULL,
-  `score` int(11) NOT NULL,
-  PRIMARY KEY (`uid`,`eid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `contest_special` (
-  `cid` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
-  PRIMARY KEY (`cid`, `pid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `chats` (
-  `mid` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
-  `msg` text NOT NULL,
-  `status` int(11) NOT NULL,
-  `ts` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`mid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
