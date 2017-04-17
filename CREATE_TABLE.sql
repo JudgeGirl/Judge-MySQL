@@ -22,8 +22,10 @@ CREATE TABLE `contest_problem` (
 CREATE TABLE `contest_special` (
   `cid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
-  PRIMARY KEY (`cid`,`pid`)
+  PRIMARY KEY (`cid`,`pid`),
+  KEY `pid` (`pid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 CREATE TABLE `contest_user` (
   `cid` int(11) NOT NULL,
@@ -44,7 +46,8 @@ CREATE TABLE `exam_scores` (
   `uid` int(11) NOT NULL,
   `eid` int(11) NOT NULL,
   `score` int(11) NOT NULL,
-  PRIMARY KEY (`uid`,`eid`)
+  PRIMARY KEY (`uid`,`eid`),
+  KEY `eid` (`eid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `exams` (
@@ -56,7 +59,8 @@ CREATE TABLE `exams` (
 CREATE TABLE `level_domain` (
   `did` int(11) NOT NULL,
   `level` int(11) NOT NULL,
-  PRIMARY KEY (`did`,`level`)
+  PRIMARY KEY (`did`,`level`),
+  KEY `level` (`level`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `levels` (
@@ -68,7 +72,8 @@ CREATE TABLE `levels` (
 
 CREATE TABLE `problem_dependency` (
   `pid` int(11) DEFAULT NULL,
-  `depend_pid` int(11) DEFAULT NULL
+  `depend_pid` int(11) DEFAULT NULL,
+  KEY `pid` (`pid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `problems` (
@@ -79,7 +84,8 @@ CREATE TABLE `problems` (
   `ttl` text COLLATE utf8_unicode_ci NOT NULL,
   `level` int(11) DEFAULT NULL,
   `porder` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pid`)
+  PRIMARY KEY (`pid`),
+  KEY `level` (`level`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `submissions` (
@@ -94,7 +100,10 @@ CREATE TABLE `submissions` (
   `res` int(11) NOT NULL,
   `cpu` int(11) NOT NULL,
   `mem` int(11) NOT NULL,
-  PRIMARY KEY (`sid`)
+  PRIMARY KEY (`sid`),
+  KEY `uid` (`uid`),
+  KEY `pid` (`pid`),
+  KEY `cid` (`cid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `users` (
